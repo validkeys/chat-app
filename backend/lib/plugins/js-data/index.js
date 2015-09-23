@@ -6,7 +6,24 @@ var glob              = require('glob');
 
 var modelsPath        = path.join(__dirname,'..','..','models','**','*.js');
 
-var store             = new JSData.DS();
+
+// Have JSData use bluebird
+JSData.DSUtils.Promise = promise;
+
+var store             = new JSData.DS({
+  keepChangeHistory:    false,
+  resetHistoryOnInject: false,
+  cacheResponse:        false,
+  ignoreMissing:        true,
+  upsert:               false,
+  bypassCache:          true,
+  findInverseLinks:     false,
+  findHasMany:          false,
+  findBelongsTo:        false,
+  findHasOne:           false,
+  notify:               false,
+  log:                  false
+});
 var models            = {};
 
 function generateAdapters() {

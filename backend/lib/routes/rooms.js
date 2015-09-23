@@ -26,5 +26,23 @@ module.exports = [
       handler:  handler.create,
       bind:     handler
     }
+  },
+
+  {
+    method: "PUT",
+    path:   "/rooms/{room_id}",
+    config: {
+      handler:  handler.update,
+      bind:     handler
+    }
+  },
+
+  {
+    method: "DELETE",
+    path:   "/rooms/{room_id}",
+    config: {
+      handler:  handler.destroy,
+      bind:     handler
+    }
   }
 ];
