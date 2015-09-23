@@ -9,8 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^2.10.1",
     "glob": "^5.0.14",
     "hapi": "^10.0.0",
-    "path": "^0.12.7"
+    "js-data": "^2.3.0",
+    "js-data-rethinkdb": "^2.0.2",
+    "lodash": "^3.10.1",
+    "path": "^0.12.7",
+    "rethinkdbdash": "^2.1.8"
   }
 }

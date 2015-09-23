@@ -1,9 +1,12 @@
+var handler = require('../handlers/index');
+
 module.exports = [
   {
     method: "GET",
     path:   "/",
-    handler: function(req, reply) {
-      reply({msg: "Hello from API"});
+    config: {
+      handler: handler.index,
+      bind:    handler
     }
   }
 ];

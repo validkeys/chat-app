@@ -4,7 +4,8 @@ var server  = new hapi.Server();
 server.connection({ port: 3000 });
 
 server.register([
-  require('./lib/plugins/routes-loader')
+  require('./lib/plugins/routes-loader'),
+  require('./lib/plugins/js-data')
 ], function(err) {
 
   if (err) {
