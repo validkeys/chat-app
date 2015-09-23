@@ -16,6 +16,7 @@
     "js-data-rethinkdb": "^2.0.2",
     "lodash": "^3.10.1",
     "path": "^0.12.7",
-    "rethinkdbdash": "^2.1.8"
+    "rethinkdbdash": "^2.1.8",
+    "socket.io": "^1.3.7"
   }
 }

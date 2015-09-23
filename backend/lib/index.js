@@ -5,7 +5,8 @@ server.connection({ port: 3000 });
 
 server.register([
   require('./plugins/routes-loader'),
-  require('./plugins/js-data')
+  require('./plugins/js-data'),
+  require('./plugins/socket-io')
 ], function(err) {
 
   if (err) {
