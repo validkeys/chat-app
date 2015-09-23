@@ -1,4 +1,5 @@
-module.exports = [
+// Development Config
+exports.development = [
   {
     adapter: 'js-data-rethinkdb',
     name:    'rethinkdb',
@@ -9,3 +10,9 @@ module.exports = [
     default: true
   }
 ];
+
+// Staging Config
+exports.staging    = [];
+
+// Production Config
+exports.production = [];
