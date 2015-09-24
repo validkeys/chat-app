@@ -29,17 +29,18 @@ var store             = new JSData.DS({
 
 // Contains all of the models
 var models            = {};
+var adapters          = {};
 
 
 
 
 // Generates an adapter for each configItem in the connections config
 function generateAdapters() {
-  var adapters = [];
   return new promise(function(resolve, reject) {
     connectionsConfig.forEach(function(config) {
       var adapter = require(config.adapter);
       var instance = new adapter(config.settings);
+      adapters[config.name] = instance;
       store.registerAdapter(config.name, instance, { default: config.default || false });
     });
     resolve();
@@ -79,6 +80,7 @@ exports.register = function(server, options, next) {
     .then(function() { return generateModels(); })
     .then(function() { 
       server.expose('models', models);
+      server.expose('adapters', adapters);
       next(); 
     })
     .catch(function(err) {
@@ -95,3 +97,4 @@ exports.register.attributes = {
 
 exports.store   = store;
 exports.models  = models;
+exports.adapters = adapters;

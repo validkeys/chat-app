@@ -1,3 +1,12 @@
 module.exports = {
-  name: 'room'
+  name: 'room',
+
+  relations: {
+    hasMany: {
+      message: {
+        localField: 'messages',
+        foreignKey: 'roomId'
+      }
+    }
+  }
 };

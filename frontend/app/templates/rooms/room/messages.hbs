@@ -1,0 +1,12 @@
+<h1>Messages</h1>
+<ul>
+  {{#each filteredMessages as |message|}}
+  <li>
+    {{message.content}}
+  </li>
+  {{else}}
+  <li>No Messages...</li>
+  {{/each}}
+</ul>
+
+{{messages/create-form room=room}}

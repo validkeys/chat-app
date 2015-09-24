@@ -57,11 +57,10 @@ module.exports = {
 
   destroy: function(req, reply) {
     var Room    = req.server.plugins.JSData.models.room;
-    var params  = this._roomParams(req.payload.room);
 
     Room.find(req.params.room_id)
       .then(function(room) {
-        return room.DSDestroy(params);
+        return room.DSDestroy();
       })
       .then(function() {
         reply({});

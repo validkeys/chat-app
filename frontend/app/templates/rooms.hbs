@@ -1,0 +1,10 @@
+<ul>
+{{#each content as |room|}}
+  <li>
+    {{#link-to 'rooms.room' room}}{{room.name}}{{/link-to}}
+  </li>
+{{/each}}
+</ul>
+{{rooms/create-form onCreate="roomCreated"}}
+
+{{outlet}}
