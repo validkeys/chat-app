@@ -11,6 +11,18 @@ exports.register = function(server, options, next) {
 
   io.on('connection', function(socket) {
     console.log("Socket IO received a connection");
+
+    socket.on('joinedRoom', function(data) {
+      var msg = data.user.name + " joined room " + data.room.id;
+      console.log(msg);
+      socket.join('room:' + data.room.id);
+      socket.broadcast.emit('joinedRoom', { msg: msg, room: data.room });
+    });
+
+    socket.on('leftRoom', function(data) {
+      console.log(data.user.name + " left room " + data.room.id);
+      socket.broadcast.emit('leftRoom', { msg: msg, room: data.room });
+    });
   });
 
   r.db('chatapp').table('message')
@@ -46,6 +58,7 @@ exports.register = function(server, options, next) {
         }, 50);
       });
     });
+
 
   next();
 };
